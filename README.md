@@ -1,96 +1,108 @@
-# 💳 Credit Card Eligibility Prediction using Machine Learning
+# 💳 Credit Card Eligibility Prediction System
 
-An end-to-end **Machine Learning + Streamlit web application** that predicts whether a customer is **eligible for a credit card** based on demographic and financial information.  
-The application features a **banking-grade UI**, mandatory field validation, and multiple themes (Banking, FinTech, Dark).
-
----
-
-## 🚀 Project Overview
-
-Credit card eligibility evaluation is a critical task for banks and financial institutions.  
-Manual screening is time-consuming, inconsistent, and prone to human bias.
-
-This project automates the decision process using a **Machine Learning classification model** trained on historical customer data to deliver **fast, consistent, and data-driven eligibility predictions**.
+An end-to-end Machine Learning project that predicts whether a customer is eligible for a credit card based on financial and behavioral attributes. The system is deployed as an interactive web application using Streamlit, simulating a real-world banking credit decision workflow.
 
 ---
 
-## 🎯 Problem Statement
+## 📌 Project Overview
 
-**To build a Machine Learning model that predicts whether a customer is eligible for a credit card based on customer demographics, account details, and transaction behavior.**
-
----
-
-## 🧠 Solution Approach
-
-1. Understand the banking and credit domain
-2. Preprocess and analyze customer data
-3. Perform feature selection to identify key predictors
-4. Train a Machine Learning classification model
-5. Build an interactive Streamlit web interface
-6. Deploy the model for real-time eligibility prediction
+This project builds a complete ML pipeline starting from raw banking data to a deployed application. The model analyzes customer demographics, transaction behavior, and credit usage patterns to determine eligibility.
 
 ---
 
-## 📊 Dataset Information
+## 📊 Dataset
 
-- **Records:** 10,000+ customer entries  
-- **Features:** 16 input variables  
-- **Target Variable:** Credit Card Eligibility (Eligible / Not Eligible)
+- ~10,000+ customer records  
+- Includes **16+ features** such as:
+  - Customer Age  
+  - Income Category  
+  - Credit Limit  
+  - Transaction Amount & Count  
+  - Credit Utilization Ratio  
+  - Account Tenure  
+  - Relationship Count  
 
-### Key Features Used
-- Customer Age  
-- Gender  
-- Income Category  
-- Credit Limit  
-- Total Transaction Amount  
-- Total Transaction Count  
-- Average Utilization Ratio  
-- Months on Book  
-- Total Relationship Count  
-
----
-
-## ⚙️ Machine Learning Model
-
-- **Algorithm:** Decision Tree Classifier  
-- **Problem Type:** Binary Classification  
-
-### Why Decision Tree?
-- Captures non-linear decision rules
-- Easy to interpret
-- Suitable for credit risk decision logic
-
-### Evaluation Metrics
-- Accuracy
-- Precision
-- Recall
-- Confusion Matrix
+- Target Variable:
+  - `credit_limit_eligible`  
+    - **1 → Eligible (Existing Customer)**  
+    - **0 → Not Eligible (Attrited Customer)**  
 
 ---
 
-## 🖥️ Streamlit Web Application
+## ⚙️ Project Workflow
 
-### Application Features
-- Clean and professional banking-style UI
-- Mandatory input validation (required fields marked with *)
-- Multiple UI themes:
-  - 🟢 Banking Theme
-  - 🟣 FinTech Theme
-  - 🌙 Dark Theme
-- Real-time eligibility prediction
-- Clear success and rejection messages
+### 1. Data Preprocessing
+- Removed irrelevant and redundant columns  
+- Handled missing values and duplicates  
+- Feature engineering for target variable  
+- Encoded categorical features using **OrdinalEncoder**  
+- Scaled numerical features using **StandardScaler**
+
+---
+
+### 2. Exploratory Data Analysis (EDA)
+- Box plots for outlier detection  
+- Count plots for categorical distributions  
+- Correlation heatmap for feature relationships  
+- Identified **class imbalance (~85% vs ~15%)**
+
+---
+
+### 3. Model Building
+
+Trained and compared multiple models:
+
+- K-Nearest Neighbors (KNN)  
+- Logistic Regression  
+- Gaussian Naive Bayes  
+- Decision Tree  
+- **Random Forest (Final Model)**  
+
+---
+
+## 🏆 Model Performance
+
+- **Best Model:** Random Forest  
+- **Accuracy Achieved:** **95.85%**  
+- Selected based on highest performance and ability to handle feature interactions effectively  
+
+---
+
+## 🌐 Deployment (Streamlit App)
+
+The model is deployed using Streamlit with a professional UI:
+
+### Features:
+- Real-time eligibility prediction  
+- Structured input form with validation  
+- Dynamic result display (Approved / Rejected)  
+- Clean banking-style user interface  
+
+---
+
+## 💡 Explainability Feature
+
+Implemented a **rule-based feedback system** that:
+
+- Provides **top 3 personalized rejection reasons**  
+- Explains decisions based on:
+  - Transaction behavior  
+  - Credit utilization  
+  - Income category  
+  - Account activity  
+
+👉 This simulates real-world banking decision transparency.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Programming Language:** Python  
-- **Machine Learning:** Scikit-learn  
-- **Web Framework:** Streamlit  
-- **Numerical Computing:** NumPy  
-- **Model Serialization:** Pickle  
+- **Programming:** Python  
+- **Libraries:** Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn  
+- **Modeling:** Machine Learning (Classification)  
+- **Deployment:** Streamlit  
+- **Version Control:** Git & GitHub  
 
 ---
 
-## 📁 Project Structure
-
+## 📂 Project Structure
